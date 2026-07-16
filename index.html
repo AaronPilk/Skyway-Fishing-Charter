@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skyway Media — Fishing Charter Websites, Booking & Ads | Keep 100% of Every Trip</title>
+<meta name="description" content="Skyway Media builds fishing charters a stunning website with built-in Stripe booking — no more 15% platform fees — plus Google & Meta ads that keep the calendar full.">
+<link rel="icon" href="https://skyway.media/wp-content/uploads/2025/04/Skyway-Media-Favicon-1-300x300.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#030413;
+  --bg2:#07091c;
+  --surface:#0c0f26;
+  --card:rgba(255,255,255,.045);
+  --card-hover:rgba(255,255,255,.08);
+  --stroke:rgba(255,255,255,.09);
+  --stroke-bright:rgba(255,255,255,.18);
+  --blue:#3c72e7;
+  --blue2:#6ea8ff;
+  --text:#f2f5ff;
+  --muted:#9aa3c0;
+  --green:#34d399;
+  --red:#f87171;
+  --grad:linear-gradient(135deg,#3c72e7 0%,#7aa7ff 100%);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --radius:20px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;background:var(--bg);color:var(--text);font-size:17px;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--blue);color:#fff}
+.container{max-width:1200px;margin-inline:auto;padding-inline:24px}
+.sec{padding-block:clamp(90px,10vw,150px);position:relative}
+h1,h2,h3{font-weight:700;letter-spacing:-.03em;line-height:1.06}
+h1{font-size:clamp(42px,6.4vw,84px)}
+h2{font-size:clamp(32px,4.4vw,56px)}
+h3{font-size:21px;letter-spacing:-.02em;line-height:1.25}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue2);margin-bottom:22px}
+.kicker::before{content:"";width:24px;height:1px;background:var(--blue2);display:inline-block}
+.lede{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:62ch;margin-top:20px}
+.center{text-align:center}
+.center .lede{margin-inline:auto}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;font-size:16px;font-weight:600;line-height:1;padding:18px 32px;border:0;border-radius:100px;cursor:pointer;text-decoration:none;transition:transform .25s var(--ease-spring),box-shadow .25s var(--ease),background .2s;min-height:54px;position:relative;overflow:hidden}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 32px rgba(60,114,231,.35)}
+.btn-primary:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 14px 44px rgba(60,114,231,.5)}
+.btn-primary:active{transform:scale(.98)}
+.btn-ghost{background:rgba(255,255,255,.07);color:var(--text);border:1px solid var(--stroke-bright);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.btn:focus-visible{outline:2px solid var(--blue2);outline-offset:3px}
+
+/* nav */
+.nav{position:fixed;inset-inline:0;top:0;z-index:100;transition:background .3s var(--ease),box-shadow .3s,backdrop-filter .3s}
+.nav.scrolled{background:rgba(3,4,19,.72);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);box-shadow:inset 0 -1px 0 var(--stroke)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:80px}
+.nav.scrolled .nav-inner{height:64px}
+.nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.nav-logo img{height:34px;width:auto}
+.wordmark{font-size:17px;font-weight:500;letter-spacing:.02em;color:#fff;white-space:nowrap}
+.wordmark b{font-weight:800}
+.nav-links{display:flex;align-items:center;gap:34px;list-style:none}
+.nav-links a{font-size:14.5px;font-weight:500;text-decoration:none;color:var(--muted);transition:color .2s;padding:8px 0}
+.nav-links a:hover{color:#fff}
+.nav .btn{padding:13px 24px;min-height:44px;font-size:14.5px}
+.hamburger{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;z-index:130}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;margin:5px auto;border-radius:2px;transition:transform .25s var(--ease),opacity .25s}
+.menu-open .hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-open .hamburger span:nth-child(2){opacity:0}
+.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;background:rgba(3,4,19,.96);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);z-index:120;display:none;flex-direction:column;justify-content:center;padding:48px 32px;opacity:0;transition:opacity .3s var(--ease)}
+.menu-open .mobile-menu{display:flex;opacity:1}
+.mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:40px}
+.mobile-menu a:not(.btn){font-size:34px;font-weight:700;letter-spacing:-.02em;color:#fff;text-decoration:none;display:block;padding:12px 0}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);will-change:transform}
+.hero-scrim{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(3,4,19,.55) 0%,rgba(3,4,19,.35) 40%,rgba(3,4,19,.92) 88%,var(--bg) 100%),
+  radial-gradient(90% 60% at 20% 45%,rgba(3,4,19,.6),transparent 70%)}
+.hero-content{position:relative;z-index:2;padding-block:140px 100px;max-width:860px}
+.hero .lede{max-width:56ch}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid var(--stroke-bright);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:100px;padding:9px 18px 9px 12px;font-size:13.5px;font-weight:500;color:#dfe7ff;margin-bottom:28px}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:56px}
+.chip{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.07);border:1px solid var(--stroke);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:14px;padding:12px 18px;font-size:14px;font-weight:600;color:#e8eeff;animation:float 6s ease-in-out infinite}
+.chip:nth-child(2){animation-delay:-2s}
+.chip:nth-child(3){animation-delay:-4s}
+.chip svg{flex:none}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;color:var(--muted);font-size:12px;letter-spacing:.14em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint::after{content:"";width:1px;height:36px;background:linear-gradient(180deg,var(--blue2),transparent);animation:drip 2s var(--ease) infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* reveal animations */
+.reveal{opacity:0;transform:translateY(36px);filter:blur(6px);transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease)}
+.reveal.in{opacity:1;transform:none;filter:none}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
+
+/* marquee */
+.marquee-wrap{border-block:1px solid var(--stroke);background:var(--bg2);overflow:hidden;padding-block:22px}
+.marquee{display:flex;gap:56px;width:max-content;animation:marquee 30s linear infinite}
+.marquee span{font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:56px}
+.marquee span::after{content:"◆";color:var(--blue);font-size:9px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* glass cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:64px}
+.card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:34px 30px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:transform .35s var(--ease),background .3s,border-color .3s,box-shadow .35s;position:relative;overflow:hidden;transform-style:preserve-3d}
+.card:hover{background:var(--card-hover);border-color:var(--stroke-bright);box-shadow:0 24px 64px rgba(0,0,0,.45)}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(110,168,255,.12),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover::before{opacity:1}
+.card-icon{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,rgba(60,114,231,.25),rgba(122,167,255,.1));border:1px solid rgba(110,168,255,.25);display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:var(--blue2)}
+.card h3{margin-bottom:10px}
+.card p{font-size:15px;color:var(--muted)}
+.card .tag{position:absolute;top:24px;right:24px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);padding:4px 10px;border-radius:100px}
+
+/* pain cards */
+.pain-card{border-color:rgba(248,113,113,.15)}
+.pain-card .card-icon{background:linear-gradient(135deg,rgba(248,113,113,.18),rgba(248,113,113,.05));border-color:rgba(248,113,113,.25);color:var(--red)}
+.pain-stat{font-size:34px;font-weight:800;letter-spacing:-.03em;color:#fff;margin-bottom:6px}
+.pain-stat em{font-style:normal;color:var(--red)}
+
+/* calculator */
+.calc{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--stroke-bright);border-radius:28px;padding:clamp(32px,4vw,56px);margin-top:64px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center;box-shadow:0 40px 100px rgba(0,0,0,.4)}
+.calc-controls label{display:block;font-size:14px;font-weight:600;color:var(--muted);margin-bottom:10px;margin-top:28px}
+.calc-controls label:first-child{margin-top:0}
+.calc-val{float:right;color:#fff;font-weight:700;font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:100px;background:linear-gradient(90deg,var(--blue) var(--fill,50%),rgba(255,255,255,.12) var(--fill,50%));outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.5),0 0 0 6px rgba(110,168,255,.2);cursor:grab;transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radius:50%;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.5);cursor:grab}
+.calc-result{text-align:center}
+.calc-result .cr-label{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.calc-bleed{font-size:clamp(48px,5.5vw,76px);font-weight:800;letter-spacing:-.04em;color:var(--red);margin:10px 0 4px;font-variant-numeric:tabular-nums;text-shadow:0 0 60px rgba(248,113,113,.3)}
+.calc-sub{font-size:14.5px;color:var(--muted)}
+.calc-vs{display:flex;align-items:center;gap:14px;margin:26px 0;color:var(--muted);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.calc-vs::before,.calc-vs::after{content:"";flex:1;height:1px;background:var(--stroke)}
+.calc-keep{font-size:clamp(30px,3vw,42px);font-weight:800;letter-spacing:-.03em;color:var(--green);font-variant-numeric:tabular-nums;text-shadow:0 0 50px rgba(52,211,153,.3)}
+.calc-result .btn{margin-top:30px}
+
+/* booking demo */
+.demo-sec{background:radial-gradient(80% 60% at 50% 0%,rgba(60,114,231,.12),transparent 60%),var(--bg2)}
+.demo-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,5vw,80px);align-items:center;margin-top:20px}
+.demo-copy .feature-list{list-style:none;margin-top:34px;display:flex;flex-direction:column;gap:18px}
+.demo-copy .feature-list li{display:flex;gap:14px;align-items:flex-start;font-size:15.5px;color:#d7def5}
+.demo-copy .feature-list svg{flex:none;margin-top:2px;color:var(--green)}
+.device{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid var(--stroke-bright);border-radius:26px;overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04) inset;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);transition:transform .4s var(--ease);will-change:transform}
+.device-bar{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid var(--stroke);background:rgba(255,255,255,.03)}
+.device-bar .dot{width:10px;height:10px;border-radius:50%}
+.device-bar .dot:nth-child(1){background:#ff5f57}.device-bar .dot:nth-child(2){background:#febc2e}.device-bar .dot:nth-child(3){background:#28c840}
+.device-url{flex:1;text-align:center;font-size:12px;color:var(--muted);background:rgba(255,255,255,.06);border-radius:8px;padding:5px 12px;margin-inline:14px;display:flex;align-items:center;justify-content:center;gap:6px}
+.device-url svg{color:var(--green)}
+.device-body{padding:26px;min-height:520px;display:flex;flex-direction:column}
+.demo-steps{display:flex;gap:6px;margin-bottom:24px}
+.demo-steps .st{flex:1;height:4px;border-radius:100px;background:rgba(255,255,255,.1);overflow:hidden;position:relative}
+.demo-steps .st::after{content:"";position:absolute;inset:0;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.demo-steps .st.done::after{transform:scaleX(1)}
+.demo-pane{display:none;animation:paneIn .45s var(--ease)}
+.demo-pane.active{display:block}
+@keyframes paneIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.demo-title{font-size:17px;font-weight:700;margin-bottom:4px}
+.demo-sub{font-size:13px;color:var(--muted);margin-bottom:18px}
+.cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-weight:600;font-size:14px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-grid .dow{font-size:10.5px;font-weight:600;color:var(--muted);text-align:center;text-transform:uppercase;letter-spacing:.06em;padding-block:4px}
+.cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;border-radius:10px;border:1px solid transparent;cursor:pointer;background:rgba(255,255,255,.04);transition:all .18s var(--ease);color:#dfe5f7}
+.cal-day:hover:not(.off):not(.full){background:rgba(110,168,255,.18);border-color:rgba(110,168,255,.4)}
+.cal-day.off{opacity:.22;cursor:default;background:transparent}
+.cal-day.full{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.cal-day.sel{background:var(--grad);color:#fff;font-weight:700;box-shadow:0 4px 18px rgba(60,114,231,.5)}
+.trip-opt{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px;border:1px solid var(--stroke);border-radius:14px;background:rgba(255,255,255,.03);cursor:pointer;transition:all .2s var(--ease);margin-bottom:10px}
+.trip-opt:hover{border-color:rgba(110,168,255,.4);background:rgba(110,168,255,.07)}
+.trip-opt.sel{border-color:var(--blue2);background:rgba(60,114,231,.14);box-shadow:0 0 0 1px var(--blue2)}
+.trip-opt .t-name{font-weight:600;font-size:14.5px}
+.trip-opt .t-meta{font-size:12px;color:var(--muted);margin-top:2px}
+.trip-opt .t-price{font-weight:800;font-size:17px;letter-spacing:-.02em;white-space:nowrap}
+.guests-row{display:flex;align-items:center;justify-content:space-between;padding:16px;border:1px solid var(--stroke);border-radius:14px;background:rgba(255,255,255,.03);margin-bottom:18px}
+.stepper{display:flex;align-items:center;gap:16px}
+.stepper button{width:36px;height:36px;border-radius:50%;border:1px solid var(--stroke-bright);background:rgba(255,255,255,.06);color:#fff;font-size:18px;cursor:pointer;transition:all .15s}
+.stepper button:hover{background:var(--blue);border-color:var(--blue)}
+.stepper .g-count{font-weight:700;font-size:18px;min-width:20px;text-align:center}
+.pay-summary{border:1px solid var(--stroke);border-radius:14px;padding:16px;background:rgba(255,255,255,.03);margin-bottom:16px;font-size:13.5px}
+.pay-summary .row{display:flex;justify-content:space-between;padding-block:5px;color:var(--muted)}
+.pay-summary .row.total{border-top:1px solid var(--stroke);margin-top:8px;padding-top:12px;color:#fff;font-weight:700;font-size:15px}
+.pay-summary .row.save{color:var(--green);font-weight:600}
+.card-input{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.card-field{display:flex;align-items:center;gap:10px;border:1px solid var(--stroke);border-radius:12px;padding:13px 14px;background:rgba(255,255,255,.04);font-size:13.5px;color:#cfd7ef}
+.card-field .cc-brand{margin-left:auto;display:flex;gap:6px}
+.cc-brand i{width:30px;height:19px;border-radius:4px;background:rgba(255,255,255,.12);display:inline-block;font-size:8px;font-style:normal;font-weight:800;display:flex;align-items:center;justify-content:center;color:#fff}
+.stripe-note{display:flex;align-items:center;justify-content:center;gap:7px;font-size:12px;color:var(--muted);margin-top:14px}
+.demo-btn{width:100%;margin-top:auto}
+.demo-back{background:none;border:0;color:var(--muted);font-size:13px;font-weight:500;cursor:pointer;padding:8px 0;font-family:inherit;display:inline-flex;align-items:center;gap:6px;margin-bottom:6px}
+.demo-back:hover{color:#fff}
+.success-pane{text-align:center;padding-block:30px}
+.success-check{width:84px;height:84px;border-radius:50%;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.4);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;animation:pop .6s var(--ease-spring)}
+@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+.success-pane .fee-flag{display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--green);font-size:13.5px;font-weight:600;border-radius:100px;padding:10px 18px}
+
+/* process */
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:64px;counter-reset:step}
+.process .card{padding-top:44px}
+.step-num{font-size:64px;font-weight:800;letter-spacing:-.05em;background:linear-gradient(180deg,rgba(110,168,255,.9),rgba(110,168,255,.08));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:18px}
+
+/* stats band */
+.stats-band{position:relative;overflow:hidden;border-block:1px solid var(--stroke)}
+.stats-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.stats-scrim{position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0%,rgba(3,4,19,.55) 30%,rgba(3,4,19,.55) 70%,var(--bg2) 100%)}
+.stats-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-num{font-size:clamp(40px,4.6vw,64px);font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.stat-label{font-size:14px;color:#c4cce6;margin-top:6px}
+
+/* faq */
+.faq{max-width:760px;margin:56px auto 0}
+.faq-item{border:1px solid var(--stroke);border-radius:16px;background:var(--card);margin-bottom:12px;overflow:hidden;transition:border-color .25s}
+.faq-item[open]{border-color:var(--stroke-bright);background:var(--card-hover)}
+.faq-item summary{list-style:none;cursor:pointer;padding:22px 26px;font-weight:600;font-size:16.5px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:24px;font-weight:400;color:var(--blue2);transition:transform .25s var(--ease);flex:none}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{padding:0 26px 24px;color:var(--muted);font-size:15px}
+
+/* lead form */
+.lead-sec{background:radial-gradient(70% 55% at 50% 100%,rgba(60,114,231,.16),transparent 65%),var(--bg)}
+.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,80px);align-items:start}
+.lead-form{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid var(--stroke-bright);border-radius:26px;padding:clamp(28px,3vw,44px);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 40px 100px rgba(0,0,0,.45)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f-group{margin-bottom:14px}
+.f-group label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+.f-group input,.f-group select{width:100%;font-family:inherit;font-size:15px;color:#fff;background:rgba(255,255,255,.05);border:1px solid var(--stroke);border-radius:12px;padding:14px 16px;outline:none;transition:border-color .2s,background .2s;appearance:none}
+.f-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239aa3c0' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.f-group select option{background:var(--surface);color:#fff}
+.f-group input:focus,.f-group select:focus{border-color:var(--blue2);background:rgba(110,168,255,.06)}
+.f-group input::placeholder{color:rgba(154,163,192,.55)}
+.lead-form .btn{width:100%;margin-top:10px}
+.form-note{font-size:12.5px;color:var(--muted);text-align:center;margin-top:16px}
+.form-success{display:none;text-align:center;padding-block:48px}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+.lead-points{list-style:none;margin-top:36px;display:flex;flex-direction:column;gap:20px}
+.lead-points li{display:flex;gap:16px;align-items:flex-start}
+.lead-points .card-icon{margin:0;width:42px;height:42px;border-radius:12px;flex:none}
+.lead-points strong{display:block;font-size:16px;margin-bottom:3px}
+.lead-points span{font-size:14px;color:var(--muted)}
+
+/* footer */
+footer{border-top:1px solid var(--stroke);padding-block:56px;background:var(--bg)}
+.foot{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap}
+.foot img{height:26px;margin-bottom:16px}
+.foot p{font-size:13.5px;color:var(--muted)}
+.foot a{color:var(--muted);text-decoration:none}
+.foot a:hover{color:#fff}
+.foot-legal{margin-top:40px;padding-top:24px;border-top:1px solid var(--stroke);font-size:12px;color:rgba(154,163,192,.6);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* orbs */
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;pointer-events:none;will-change:transform}
+.orb-blue{background:#2451c7;width:480px;height:480px}
+.orb-cyan{background:#1a6fae;width:380px;height:380px}
+
+@media(max-width:960px){
+  .nav-links,.nav .nav-cta{display:none}
+  .hamburger{display:block}
+  .demo-grid,.lead-grid,.calc{grid-template-columns:1fr}
+  .process{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:40px 16px}
+  .f-row{grid-template-columns:1fr}
+  .device{transform:none!important}
+}
+</style>
+</head>
+<body>
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Skyway Media home">
+      <img src="assets/skyway-logo.svg" alt="">
+      <span class="wordmark">skyway <b>media</b></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#problem">The Problem</a></li>
+        <li><a href="#calculator">Fee Calculator</a></li>
+        <li><a href="#demo">Booking Demo</a></li>
+        <li><a href="#services">What You Get</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <a href="#audit" class="btn btn-primary nav-cta">Get a Free Audit</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#problem">The Problem</a></li>
+      <li><a href="#calculator">Fee Calculator</a></li>
+      <li><a href="#demo">Booking Demo</a></li>
+      <li><a href="#services">What You Get</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#audit" class="btn btn-primary">Get a Free Audit</a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="">
+    <source src="assets/boat-1914.mp4" type="video/mp4">
+  </video>
+  <div class="hero-scrim"></div>
+  <div class="container hero-content">
+    <div class="hero-badge reveal in"><span class="dot"></span> Now booking Florida charters for the 2027 season</div>
+    <h1 class="reveal in">Booked solid.<br><span class="grad-text">Even in the slow season.</span></h1>
+    <p class="lede reveal in reveal-d1">We build fishing charters a website that books trips directly — with Stripe payments straight to your bank — then run the Google and Meta ads that keep it full. No more handing 15% of every trip to a booking platform.</p>
+    <div class="hero-ctas reveal in reveal-d2">
+      <a href="#audit" class="btn btn-primary">Get Your Free Audit</a>
+      <a href="#demo" class="btn btn-ghost">Try the Booking Demo</a>
+    </div>
+    <div class="hero-chips reveal in reveal-d3">
+      <span class="chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>0% platform commissions</span>
+      <span class="chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6ea8ff" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg>Stripe deposits, straight to your bank</span>
+      <span class="chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6ea8ff" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg>Google + Meta ads managed for you</span>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- ===================== MARQUEE ===================== -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee">
+    <span>Charter Websites</span><span>Direct Booking</span><span>Stripe Payments</span><span>Google Ads</span><span>Meta Ads</span><span>Local SEO</span><span>Rebooking Automation</span><span>CRM Included</span>
+    <span>Charter Websites</span><span>Direct Booking</span><span>Stripe Payments</span><span>Google Ads</span><span>Meta Ads</span><span>Local SEO</span><span>Rebooking Automation</span><span>CRM Included</span>
+  </div>
+</div>
+
+<!-- ===================== PROBLEM ===================== -->
+<section class="sec" id="problem">
+  <div class="orb orb-blue" style="top:-120px;right:-160px"></div>
+  <div class="container">
+    <span class="kicker reveal">The Problem</span>
+    <h2 class="reveal">Your boat is ready.<br>Your bookings? Not so much.</h2>
+    <p class="lede reveal reveal-d1">Most captains are world-class on the water and invisible online. Meanwhile the platforms taking your bookings are taking a cut of every single trip.</p>
+    <div class="cards">
+      <div class="card pain-card tilt reveal">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div class="pain-stat"><em>15–20%</em> gone</div>
+        <p>That's what FishingBooker, GetMyBoat and the rest skim off every trip you run. On a $1,200 offshore day, that's up to $240 — for a listing you don't even own.</p>
+      </div>
+      <div class="card pain-card tilt reveal reveal-d1">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <div class="pain-stat">Page <em>3</em> of Google</div>
+        <p>Anglers search "fishing charter near me" every day in your waters. If your Maps listing and site aren't dialed in, those deposits go to the boat next slip over.</p>
+      </div>
+      <div class="card pain-card tilt reveal reveal-d2">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="15" rx="2"/><path d="M8 21h8M12 19v2"/></svg></div>
+        <div class="pain-stat">A website from <em>2014</em></div>
+        <p>Slow, not mobile-friendly, no online booking, photos from three phones ago. Customers judge the trip by the site — then book somewhere that looks alive.</p>
+      </div>
+      <div class="card pain-card tilt reveal reveal-d3">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-9-9"/><path d="M21 3l-9 9"/></svg></div>
+        <div class="pain-stat"><em>Zero</em> rebooking</div>
+        <p>Last season's clients loved the trip — and never heard from you again. No follow-ups, no reviews requested, no repeat deposits. That's the easiest money you're leaving on the dock.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CALCULATOR ===================== -->
+<section class="sec" id="calculator" style="padding-top:0">
+  <div class="container">
+    <div class="center">
+      <span class="kicker reveal">The Math</span>
+      <h2 class="reveal">See what the platforms<br>are really costing you.</h2>
+      <p class="lede reveal reveal-d1">Drag the sliders to your numbers. This is what leaves your pocket every year in booking commissions alone.</p>
+    </div>
+    <div class="calc reveal">
+      <div class="calc-controls">
+        <label>Trips per month <span class="calc-val" id="tripsVal">12</span></label>
+        <input type="range" id="trips" min="2" max="40" value="12" step="1">
+        <label>Average trip price <span class="calc-val" id="priceVal">$800</span></label>
+        <input type="range" id="price" min="200" max="3000" value="800" step="50">
+        <label>Platform commission <span class="calc-val" id="feeVal">15%</span></label>
+        <input type="range" id="fee" min="5" max="25" value="15" step="1">
+      </div>
+      <div class="calc-result">
+        <div class="cr-label">Handed to the platform every year</div>
+        <div class="calc-bleed" id="bleed">$17,280</div>
+        <div class="calc-sub">That's <span id="bleedTrips">21</span> full trips you ran for someone else.</div>
+        <div class="calc-vs">With your own booking system</div>
+        <div class="calc-keep" id="keep">You keep 100%</div>
+        <a href="#audit" class="btn btn-primary">Stop the Bleed</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BOOKING DEMO ===================== -->
+<section class="sec demo-sec" id="demo">
+  <div class="container">
+    <div class="center">
+      <span class="kicker reveal">Live Demo</span>
+      <h2 class="reveal">This is what your customers get.<br><span class="grad-text">On your website.</span></h2>
+    </div>
+    <div class="demo-grid">
+      <div class="demo-copy reveal">
+        <h3 style="font-size:26px">Book in under 60 seconds. Deposit hits your Stripe. Done.</h3>
+        <p class="lede" style="font-size:16.5px;margin-top:14px">Click through the demo — it's the exact booking flow we build into every charter site. Real-time availability, trip selection, and secure checkout, with zero commission taken out.</p>
+        <ul class="feature-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Your calendar, your rules.</strong> Block weather days, set seasonal pricing, cap group sizes — from your phone.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Stripe-powered payments.</strong> Deposits and balances land in your bank in days, not weeks. No middleman.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Every booking feeds your CRM.</strong> Automatic confirmations, reminders, review requests, and next-season rebooking campaigns.</span></li>
+        </ul>
+      </div>
+      <div class="device tilt-device reveal reveal-d1" id="device">
+        <div class="device-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="device-url"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg> yourcharter.com/book</span>
+        </div>
+        <div class="device-body">
+          <div class="demo-steps">
+            <div class="st" data-st="0"></div><div class="st" data-st="1"></div><div class="st" data-st="2"></div><div class="st" data-st="3"></div>
+          </div>
+
+          <!-- Step 1: date -->
+          <div class="demo-pane active" data-pane="0">
+            <div class="demo-title">Pick your day on the water</div>
+            <div class="demo-sub">Live availability — greyed dates are already booked.</div>
+            <div class="cal-head"><span id="calMonth">March 2027</span></div>
+            <div class="cal-grid" id="calGrid"></div>
+          </div>
+
+          <!-- Step 2: trip -->
+          <div class="demo-pane" data-pane="1">
+            <button class="demo-back" data-back="0">&larr; Back</button>
+            <div class="demo-title">Choose your trip</div>
+            <div class="demo-sub" id="tripDate">Saturday, March 13</div>
+            <div class="trip-opt" data-trip="0"><div><div class="t-name">Inshore Half-Day</div><div class="t-meta">4 hrs · up to 4 guests · snook, redfish, trout</div></div><div class="t-price">$650</div></div>
+            <div class="trip-opt" data-trip="1"><div><div class="t-name">Offshore Full-Day</div><div class="t-meta">8 hrs · up to 6 guests · grouper, snapper, kingfish</div></div><div class="t-price">$1,200</div></div>
+            <div class="trip-opt" data-trip="2"><div><div class="t-name">Sunset Cruise & Cast</div><div class="t-meta">2.5 hrs · up to 6 guests · light tackle + views</div></div><div class="t-price">$400</div></div>
+          </div>
+
+          <!-- Step 3: guests -->
+          <div class="demo-pane" data-pane="2">
+            <button class="demo-back" data-back="1">&larr; Back</button>
+            <div class="demo-title">Who's coming aboard?</div>
+            <div class="demo-sub" id="guestTrip">Offshore Full-Day · Saturday, March 13</div>
+            <div class="guests-row">
+              <div><strong style="font-size:14.5px">Guests</strong><div style="font-size:12px;color:var(--muted)" id="guestMax">Up to 6 on this trip</div></div>
+              <div class="stepper">
+                <button type="button" id="gMinus" aria-label="Fewer guests">−</button>
+                <span class="g-count" id="gCount">2</span>
+                <button type="button" id="gPlus" aria-label="More guests">+</button>
+              </div>
+            </div>
+            <button class="btn btn-primary demo-btn" data-next="3">Continue to Payment</button>
+          </div>
+
+          <!-- Step 4: payment -->
+          <div class="demo-pane" data-pane="3">
+            <button class="demo-back" data-back="2">&larr; Back</button>
+            <div class="demo-title">Secure checkout</div>
+            <div class="demo-sub">50% deposit today, balance at the dock.</div>
+            <div class="pay-summary">
+              <div class="row"><span id="sumTrip">Offshore Full-Day</span><span id="sumPrice">$1,200</span></div>
+              <div class="row"><span id="sumGuests">2 guests · Sat, March 13</span><span></span></div>
+              <div class="row total"><span>Deposit due today</span><span id="sumDeposit">$600</span></div>
+              <div class="row save"><span>Platform commission</span><span>$0.00</span></div>
+            </div>
+            <div class="card-input">
+              <div class="card-field"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg> 4242 4242 4242 4242 <span class="cc-brand"><i>VISA</i></span></div>
+              <div style="display:flex;gap:10px"><div class="card-field" style="flex:1">12 / 28</div><div class="card-field" style="flex:1">CVC ···</div></div>
+            </div>
+            <button class="btn btn-primary demo-btn" id="payBtn">Pay $600 Deposit</button>
+            <div class="stripe-note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg> Powered by Stripe · Funds go straight to the captain's bank</div>
+          </div>
+
+          <!-- Success -->
+          <div class="demo-pane" data-pane="4">
+            <div class="success-pane">
+              <div class="success-check"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+              <div class="demo-title" style="font-size:22px">You're on the water.</div>
+              <p style="font-size:14px;color:var(--muted);max-width:34ch;margin:8px auto 0">Confirmation sent. Deposit is on its way to the captain's bank account — reminder texts and rebooking follow-ups run automatically.</p>
+              <div class="fee-flag"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> A booking platform would've taken <span id="feeWould">$180</span> of this trip</div>
+              <div style="margin-top:26px"><button class="btn btn-ghost" id="demoRestart" style="min-height:46px;padding:13px 26px;font-size:14px">Run it again</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="sec" id="services">
+  <div class="orb orb-cyan" style="bottom:-100px;left:-140px"></div>
+  <div class="container">
+    <span class="kicker reveal">What You Get</span>
+    <h2 class="reveal">Everything it takes to<br>keep a calendar full.</h2>
+    <p class="lede reveal reveal-d1">One team, one monthly partnership — website, booking, ads, and follow-up working together. Fishing charters, nothing else.</p>
+    <div class="cards">
+      <div class="card tilt reveal">
+        <span class="tag">Flagship</span>
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="15" rx="2"/><path d="M2 9h20M6 21h12"/></svg></div>
+        <h3>Website + Direct Booking</h3>
+        <p>A fast, cinematic site built around your boat and your waters — with the booking engine you just tried built in. You own it. No platform fees, ever.</p>
+      </div>
+      <div class="card tilt reveal reveal-d1">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20M6 15h4"/></svg></div>
+        <h3>Stripe Payments, 0% Commission</h3>
+        <p>Deposits and balances processed through your own Stripe account. Standard card rates only — the 15–20% platform cut stays in your pocket.</p>
+      </div>
+      <div class="card tilt reveal reveal-d2">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></div>
+        <h3>Google Ads + Local SEO</h3>
+        <p>Own "fishing charter near me" in your waters. Search campaigns, Maps optimization, and review velocity that put you above the fold when anglers are ready to book.</p>
+      </div>
+      <div class="card tilt reveal">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.4 5.3 5.6.6-4.2 3.9 1.2 5.6L12 15.6 7 18.4l1.2-5.6L4 8.9l5.6-.6z"/></svg></div>
+        <h3>Meta Ads + Content</h3>
+        <p>We shoot on your boat, then turn that footage into Facebook and Instagram campaigns that fill weekdays, shoulder season, and last-minute cancellations.</p>
+      </div>
+      <div class="card tilt reveal reveal-d1">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <h3>CRM + Rebooking Engine</h3>
+        <p>Every guest is captured, tagged, and nurtured. Automatic review requests, holiday gift-card pushes, and "book next season" campaigns that fill the calendar before it opens.</p>
+      </div>
+      <div class="card tilt reveal reveal-d2">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg></div>
+        <h3>Reporting That Reads Like a Fish Finder</h3>
+        <p>One monthly scorecard: bookings, revenue, cost per trip booked, and where every dollar came from. If a number can't be tied to deposits, we don't chase it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESS ===================== -->
+<section class="sec" id="process" style="padding-top:0">
+  <div class="container">
+    <div class="center">
+      <span class="kicker reveal">The Process</span>
+      <h2 class="reveal">From first call to full calendar<br>in 90 days.</h2>
+    </div>
+    <div class="process">
+      <div class="card tilt reveal">
+        <div class="step-num">01</div>
+        <h3>The Audit</h3>
+        <p>A 20-minute call plus a full teardown of your current site, Google presence, and platform fees. You'll see exactly where bookings are leaking — free, no strings.</p>
+      </div>
+      <div class="card tilt reveal reveal-d1">
+        <div class="step-num">02</div>
+        <h3>The Build</h3>
+        <p>We design your site, wire up Stripe booking, shoot content on your boat, and launch your ad campaigns. You keep running trips — we handle every pixel.</p>
+      </div>
+      <div class="card tilt reveal reveal-d2">
+        <div class="step-num">03</div>
+        <h3>Booked</h3>
+        <p>Deposits start landing in your account. We optimize ads weekly, feed your CRM, and start rebooking last season's guests before the next one opens.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATS BAND ===================== -->
+<section class="stats-band sec" id="stats">
+  <video class="stats-video" autoplay muted loop playsinline preload="metadata">
+    <source src="assets/boat-45365.mp4" type="video/mp4">
+  </video>
+  <div class="stats-scrim"></div>
+  <div class="container stats-grid">
+    <div class="reveal"><div class="stat-num grad-text"><span class="count" data-to="15" data-prefix="" data-suffix="%">0%</span></div><div class="stat-label">Average commission you stop paying on day one</div></div>
+    <div class="reveal reveal-d1"><div class="stat-num grad-text"><span class="count" data-to="90" data-suffix="">0</span></div><div class="stat-label">Days from kickoff to a fully booked funnel</div></div>
+    <div class="reveal reveal-d2"><div class="stat-num grad-text"><span class="count" data-to="60" data-suffix="s">0s</span></div><div class="stat-label">From landing on your site to paid deposit</div></div>
+    <div class="reveal reveal-d3"><div class="stat-num grad-text"><span class="count" data-to="100" data-suffix="%">0%</span></div><div class="stat-label">Of every booking goes to you. Zero to a platform.</div></div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="sec" id="faq">
+  <div class="container">
+    <div class="center">
+      <span class="kicker reveal">FAQ</span>
+      <h2 class="reveal">Asked on almost every audit call.</h2>
+    </div>
+    <div class="faq reveal">
+      <details class="faq-item">
+        <summary>Do I have to leave FishingBooker right away?</summary>
+        <p>No. Most captains keep their listings while we build direct bookings up. As your own site takes over, the platforms become optional overflow instead of your lifeline — and you decide when to cut them loose.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Who owns the website and the customer list?</summary>
+        <p>You do. Your domain, your Stripe account, your customer data. If we ever part ways, everything stays with you. That's the whole point of getting off the platforms.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do payments actually work?</summary>
+        <p>Bookings run through Stripe connected to your own bank account. You set deposit rules (50% is typical), customers pay by card or Apple Pay, and payouts land in your account in about two business days. You pay only standard card processing — no commission to us or anyone else.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if a trip gets weathered out?</summary>
+        <p>The booking system handles reschedules and refunds in a couple of clicks, and automated texts offer your next open dates first — so a blown day turns into a moved booking instead of a lost one.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How much does it cost?</summary>
+        <p>It depends on whether you need the full build or just ads on an existing site. On the audit call we'll show you the math against what you're currently paying in commissions — for most boats running 10+ trips a month, the switch pays for itself.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you work with charters outside Florida?</summary>
+        <p>We're built in St. Pete and know these waters best, but the system works anywhere anglers search Google. If you run a legitimate charter operation, book the call.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LEAD FORM ===================== -->
+<section class="sec lead-sec" id="audit">
+  <div class="container lead-grid">
+    <div class="reveal">
+      <span class="kicker">Free Audit</span>
+      <h2>See where your bookings are leaking.</h2>
+      <p class="lede">20 minutes. We pull up your Google presence, your site, and your platform fees live on the call — and show you the plan whether you hire us or not.</p>
+      <ul class="lead-points">
+        <li><div class="card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><div><strong>Your search teardown</strong><span>Where you rank for the terms anglers actually type.</span></div></li>
+        <li><div class="card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div><strong>Your fee bleed, in dollars</strong><span>Exactly what the platforms cost you last season.</span></div></li>
+        <li><div class="card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg></div><div><strong>Your 90-day plan</strong><span>The exact build order we'd run for your boat.</span></div></li>
+      </ul>
+    </div>
+    <form class="lead-form reveal reveal-d1" id="leadForm" novalidate>
+      <div class="f-row">
+        <div class="f-group"><label for="lf-name">Your name</label><input id="lf-name" name="name" type="text" placeholder="Capt. Mike Rivera" required autocomplete="name"></div>
+        <div class="f-group"><label for="lf-phone">Phone</label><input id="lf-phone" name="phone" type="tel" placeholder="(727) 555-0134" required autocomplete="tel"></div>
+      </div>
+      <div class="f-group"><label for="lf-email">Email</label><input id="lf-email" name="email" type="email" placeholder="captain@yourcharter.com" required autocomplete="email"></div>
+      <div class="f-row">
+        <div class="f-group"><label for="lf-biz">Charter / boat name</label><input id="lf-biz" name="business" type="text" placeholder="Reel Deal Charters"></div>
+        <div class="f-group"><label for="lf-city">Home port</label><input id="lf-city" name="city" type="text" placeholder="St. Petersburg, FL"></div>
+      </div>
+      <div class="f-row">
+        <div class="f-group">
+          <label for="lf-trips">Trips per month</label>
+          <select id="lf-trips" name="trips_per_month">
+            <option value="1-5">1–5</option>
+            <option value="6-10">6–10</option>
+            <option value="11-20" selected>11–20</option>
+            <option value="20+">20+</option>
+          </select>
+        </div>
+        <div class="f-group">
+          <label for="lf-platform">Booking today via</label>
+          <select id="lf-platform" name="current_platform">
+            <option value="fishingbooker">FishingBooker</option>
+            <option value="getmyboat">GetMyBoat</option>
+            <option value="fareharbor">FareHarbor</option>
+            <option value="phone">Phone / DMs only</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="hp" aria-hidden="true"><label>Leave blank<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <button type="submit" class="btn btn-primary" id="leadSubmit">Claim My Free Audit</button>
+      <p class="form-note">No spam, no pressure. If we can't beat what you're paying the platforms, we'll tell you.</p>
+      <div class="form-success" id="formSuccess">
+        <div class="success-check"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3 style="font-size:24px;margin-bottom:8px">You're in.</h3>
+        <p style="color:var(--muted);font-size:15px">We'll call within one business day to lock in your 20 minutes.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>
+        <a href="#top" class="nav-logo" style="margin-bottom:16px"><img src="assets/skyway-logo.svg" alt="" style="height:30px"><span class="wordmark">skyway <b>media</b></span></a>
+        <p>1029 Central Ave STE 200<br>St. Petersburg, FL 33705</p>
+      </div>
+      <div>
+        <p style="font-weight:600;color:#fff;margin-bottom:10px">Work with us</p>
+        <p><a href="mailto:hello@skyway.media">hello@skyway.media</a><br><a href="https://skyway.media" target="_blank" rel="noopener">skyway.media</a></p>
+      </div>
+      <div>
+        <p style="font-weight:600;color:#fff;margin-bottom:10px">Follow</p>
+        <p><a href="https://www.instagram.com/skywaymedia/" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.facebook.com/skywaymediadigital" target="_blank" rel="noopener">Facebook</a><br><a href="https://www.linkedin.com/company/skyway-media" target="_blank" rel="noopener">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>© 2026 Skyway Media. All rights reserved.</span>
+      <span>Custom made in St. Petersburg, FL — mostly at night, with a lot of coffee.</span>
+    </div>
+  </div>
+</footer>
+<!-- BODY -->
+<script>
+/* =========================================================
+   SKYWAY CRM CONFIG
+   Paste your CRM webhook endpoint + token below.
+   Leads POST as JSON: {name, phone, email, business, city,
+   trips_per_month, current_platform, source, submitted_at}
+   ========================================================= */
+const SKYWAY_CRM = {
+  endpoint: "",          // e.g. "https://crm.skyway.media/api/leads"
+  token: "",             // e.g. "sk_live_xxx" — sent as Bearer token
+  source: "fishing-charter-landing"
+};
+
+/* ---------- nav ---------- */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive: true});
+const hamburger = document.getElementById('hamburger');
+hamburger.addEventListener('click', () => {
+  const open = document.body.classList.toggle('menu-open');
+  hamburger.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('.mobile-menu a').forEach(a =>
+  a.addEventListener('click', () => document.body.classList.remove('menu-open')));
+
+/* ---------- reveal on scroll ---------- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold: .15, rootMargin: '0px 0px -40px 0px'});
+document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+
+/* ---------- hero parallax ---------- */
+const heroVideo = document.getElementById('heroVideo');
+const heroContent = document.querySelector('.hero-content');
+addEventListener('scroll', () => {
+  const y = scrollY;
+  if (y < innerHeight) {
+    heroVideo.style.transform = `scale(1.06) translateY(${y * .18}px)`;
+    heroContent.style.transform = `translateY(${y * .08}px)`;
+    heroContent.style.opacity = 1 - y / (innerHeight * .9);
+  }
+}, {passive: true});
+
+/* ---------- card glow + tilt ---------- */
+const fine = matchMedia('(pointer:fine)').matches;
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('pointermove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    if (fine && card.classList.contains('tilt')) {
+      const rx = ((e.clientY - r.top) / r.height - .5) * -5;
+      const ry = ((e.clientX - r.left) / r.width - .5) * 5;
+      card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+    }
+  });
+  card.addEventListener('pointerleave', () => card.style.transform = '');
+});
+
+/* device tilt */
+const device = document.getElementById('device');
+if (device && fine) {
+  device.addEventListener('pointermove', e => {
+    const r = device.getBoundingClientRect();
+    const rx = ((e.clientY - r.top) / r.height - .5) * -4;
+    const ry = ((e.clientX - r.left) / r.width - .5) * 4;
+    device.style.transform = `perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+  });
+  device.addEventListener('pointerleave', () => device.style.transform = '');
+}
+
+/* ---------- counters ---------- */
+const fmtInt = n => Math.round(n).toLocaleString('en-US');
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    cio.unobserve(e.target);
+    const el = e.target, to = +el.dataset.to, suf = el.dataset.suffix || '';
+    const t0 = performance.now(), dur = 1600;
+    (function tick(t) {
+      const p = Math.min((t - t0) / dur, 1), ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmtInt(to * ease) + suf;
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  });
+}, {threshold: .6});
+document.querySelectorAll('.count').forEach(el => cio.observe(el));
+
+/* ---------- fee calculator ---------- */
+const $ = id => document.getElementById(id);
+const fmtUSD = n => '$' + Math.round(n).toLocaleString('en-US');
+function paintRange(r) {
+  r.style.setProperty('--fill', ((r.value - r.min) / (r.max - r.min) * 100) + '%');
+}
+let bleedShown = 0;
+function calc() {
+  const trips = +$('trips').value, price = +$('price').value, fee = +$('fee').value;
+  $('tripsVal').textContent = trips;
+  $('priceVal').textContent = fmtUSD(price);
+  $('feeVal').textContent = fee + '%';
+  const bleed = trips * 12 * price * fee / 100;
+  $('bleedTrips').textContent = Math.round(bleed / price);
+  const from = bleedShown, t0 = performance.now();
+  bleedShown = bleed;
+  (function tick(t) {
+    const p = Math.min((t - t0) / 500, 1), ease = 1 - Math.pow(1 - p, 3);
+    $('bleed').textContent = fmtUSD(from + (bleed - from) * ease);
+    if (p < 1) requestAnimationFrame(tick);
+  })(t0);
+  ['trips','price','fee'].forEach(id => paintRange($(id)));
+}
+['trips','price','fee'].forEach(id => $(id).addEventListener('input', calc));
+calc();
+
+/* ---------- booking demo ---------- */
+const TRIPS = [
+  {name: 'Inshore Half-Day', price: 650, max: 4},
+  {name: 'Offshore Full-Day', price: 1200, max: 6},
+  {name: 'Sunset Cruise & Cast', price: 400, max: 6}
+];
+const demo = {date: null, trip: 1, guests: 2};
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+/* build calendar for ~6 weeks out */
+(function buildCal() {
+  const grid = $('calGrid');
+  const base = new Date();
+  base.setMonth(base.getMonth() + 1, 1); // first of next month
+  $('calMonth').textContent = MONTHS[base.getMonth()] + ' ' + base.getFullYear();
+  ['S','M','T','W','T','F','S'].forEach(d => {
+    const el = document.createElement('div'); el.className = 'dow'; el.textContent = d; grid.appendChild(el);
+  });
+  const startDow = base.getDay();
+  const days = new Date(base.getFullYear(), base.getMonth() + 1, 0).getDate();
+  for (let i = 0; i < startDow; i++) { const el = document.createElement('div'); el.className = 'cal-day off'; grid.appendChild(el); }
+  // deterministic "booked" days so the demo feels alive
+  const booked = new Set([3, 7, 12, 14, 19, 21, 26]);
+  for (let d = 1; d <= days; d++) {
+    const el = document.createElement('div');
+    el.className = 'cal-day' + (booked.has(d) ? ' full' : '');
+    el.textContent = d;
+    if (!booked.has(d)) el.addEventListener('click', () => {
+      grid.querySelectorAll('.cal-day.sel').forEach(x => x.classList.remove('sel'));
+      el.classList.add('sel');
+      const dt = new Date(base.getFullYear(), base.getMonth(), d);
+      demo.date = dt.toLocaleDateString('en-US', {weekday: 'long', month: 'long', day: 'numeric'});
+      setTimeout(() => goPane(1), 280);
+    });
+    grid.appendChild(el);
+  }
+})();
+
+function goPane(n) {
+  document.querySelectorAll('.demo-pane').forEach(p => p.classList.remove('active'));
+  document.querySelector(`[data-pane="${n}"]`).classList.add('active');
+  document.querySelectorAll('.demo-steps .st').forEach((s, i) => s.classList.toggle('done', i < Math.min(n + 1, 4)));
+  syncDemo();
+}
+function syncDemo() {
+  const t = TRIPS[demo.trip];
+  if (demo.date) {
+    $('tripDate').textContent = demo.date;
+    $('sumGuests').textContent = `${demo.guests} guest${demo.guests > 1 ? 's' : ''} · ${demo.date}`;
+  }
+  $('guestTrip').textContent = `${t.name}${demo.date ? ' · ' + demo.date : ''}`;
+  $('guestMax').textContent = `Up to ${t.max} on this trip`;
+  $('sumTrip').textContent = t.name;
+  $('sumPrice').textContent = fmtUSD(t.price);
+  const dep = t.price / 2;
+  $('sumDeposit').textContent = fmtUSD(dep);
+  $('payBtn').textContent = `Pay ${fmtUSD(dep)} Deposit`;
+  $('feeWould').textContent = fmtUSD(t.price * .15);
+  $('gCount').textContent = demo.guests;
+}
+document.querySelectorAll('.trip-opt').forEach(opt => opt.addEventListener('click', () => {
+  document.querySelectorAll('.trip-opt').forEach(x => x.classList.remove('sel'));
+  opt.classList.add('sel');
+  demo.trip = +opt.dataset.trip;
+  demo.guests = Math.min(demo.guests, TRIPS[demo.trip].max);
+  setTimeout(() => goPane(2), 300);
+}));
+$('gMinus').addEventListener('click', () => { demo.guests = Math.max(1, demo.guests - 1); syncDemo(); });
+$('gPlus').addEventListener('click', () => { demo.guests = Math.min(TRIPS[demo.trip].max, demo.guests + 1); syncDemo(); });
+document.querySelectorAll('[data-next]').forEach(b => b.addEventListener('click', () => goPane(+b.dataset.next)));
+document.querySelectorAll('[data-back]').forEach(b => b.addEventListener('click', () => goPane(+b.dataset.back)));
+$('payBtn').addEventListener('click', () => {
+  $('payBtn').textContent = 'Processing…';
+  setTimeout(() => { goPane(4); $('payBtn').textContent = `Pay ${fmtUSD(TRIPS[demo.trip].price / 2)} Deposit`; }, 900);
+});
+$('demoRestart').addEventListener('click', () => {
+  document.querySelectorAll('.cal-day.sel,.trip-opt.sel').forEach(x => x.classList.remove('sel'));
+  demo.date = null; demo.trip = 1; demo.guests = 2;
+  goPane(0);
+  document.querySelectorAll('.demo-steps .st').forEach(s => s.classList.remove('done'));
+});
+syncDemo();
+
+/* ---------- lead form → CRM ---------- */
+$('leadForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const form = e.target;
+  const f = form.elements;
+  if (f['website'].value) return; // honeypot
+  if (!form.reportValidity()) return;
+  const btn = $('leadSubmit');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  const payload = {
+    name: f['name'].value.trim(),
+    phone: f['phone'].value.trim(),
+    email: f['email'].value.trim(),
+    business: f['business'].value.trim(),
+    city: f['city'].value.trim(),
+    trips_per_month: f['trips_per_month'].value,
+    current_platform: f['current_platform'].value,
+    source: SKYWAY_CRM.source,
+    submitted_at: new Date().toISOString()
+  };
+  try {
+    if (SKYWAY_CRM.endpoint) {
+      const res = await fetch(SKYWAY_CRM.endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(SKYWAY_CRM.token ? {'Authorization': 'Bearer ' + SKYWAY_CRM.token} : {})
+        },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('CRM responded ' + res.status);
+    } else {
+      console.info('[Skyway] CRM endpoint not configured — lead payload:', payload);
+      await new Promise(r => setTimeout(r, 700)); // demo delay
+    }
+    Array.from(form.children).forEach(c => { if (c.id !== 'formSuccess') c.style.display = 'none'; });
+    $('formSuccess').style.display = 'block';
+  } catch (err) {
+    console.error('[Skyway] lead submit failed:', err);
+    btn.disabled = false; btn.textContent = 'Claim My Free Audit';
+    alert("Something hiccuped sending that. Call us instead: hello@skyway.media");
+  }
+});
+
+/* ---------- pause videos offscreen (perf) ---------- */
+const vio = new IntersectionObserver(es => es.forEach(e => {
+  e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause();
+}), {threshold: .1});
+document.querySelectorAll('video').forEach(v => vio.observe(v));
+</script>
+</body>
+</html>
