@@ -1,0 +1,4 @@
+# raw source footage — keep originals out of the repo
+*.MOV
+*.mov
+.DS_Store

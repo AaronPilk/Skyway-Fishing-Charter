@@ -32,7 +32,7 @@ Until an endpoint is set, submissions log the payload to the console and show th
 
 Drop your clips into `assets/` and update the two `<video>` sources:
 
-- Hero: `assets/boat-1914.mp4`
+- Hero: `assets/hero-drone.mp4` (real drone footage, 1080p H.264)
 - Stats band: `assets/boat-45365.mp4`
 
 Current clips are Mixkit stock (free commercial license, no attribution required).
